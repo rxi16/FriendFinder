@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<title>Friend Finder | Survey</title>
+
+	<!-- jquery library -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  	<!-- bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	
+	<!-- Tether (required for bootstrap 4.0.0) -->
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+
+	<!-- bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<!-- chosen css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+
+	<!-- chosen javascript-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+<body>
+	<div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-hidden="true">
+	    <div class="modal-dialog" role="document">
+	      	<div class="modal-content">
+	        	<div class="modal-header">
+	          		<h2 class="modal-title">New Friend: Best Match</h2>
+	          		<button type="button" class="close" data-dismiss="modal">
+	            		<span aria-hidden="true">&times;</span>
+	          		</button>
+	        	</div>
+	        	<div class="modal-body">
+	          		<h2 id="friendNameMatch"></h2>
+	          		<img id=“photoURLMatch” src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt></img>
+	        	</div>
+	        	<div class="modal-footer">
+	          		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        	</div>
+	      	</div>
+	    </div>
+	</div>
+	<div id="question"></div>
+	<div class="container">
+		<h1 class="jumbotron jumbotron-default text-center">Friend Finder</h1>
+    	<hr />
+        <h3>About You</h3>
+        <label for="friendName">Name (required)</label>
+        <input type="text" class="form-control" id="friendName" placeholder="Your Name">
+        <label for="photoURL">Link to photo image (required)</label>
+        <input type="text" class="form-control" id="photoURL" placeholder="Photo URL">
+        <hr />
+		<p>1. I like running; I ran one race, one time, one year (or one decade) ago...maybe.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question1" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question1" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question1" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question1" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question1" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+				</div>
+		<hr />
+		<p>2. I like long walks on the beach, but I usually find myself doing long sits on the couch.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question2" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question2" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question2" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question2" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question2" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>3. I enjoy doing marathons, particularly marathon episodes of TV shows.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question3" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question3" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question3" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question3" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question3" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>4. I always turn off the lights when I leave the room (even when people are still in it).</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question4" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question4" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question4" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question4" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question4" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>5. I am better at shouting than making good arguments.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question5" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question5" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question5" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question5" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question5" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>6. 2+9*8-8-0/3=22222222222</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question6" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question6" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question6" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question6" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question6" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>7. I don't actually want friends.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question7" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question7" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question7" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question7" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question7" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+				</div>
+		<hr />
+		<p>8. I always make sure I minimize or obliterate my IRA contributions annually.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question8" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question8" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question8" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question8" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question8" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>9. Gin and tonics taste like pine trees.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question9" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question9" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question9" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question9" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question9" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<p>10. I bring popcorn with me whenever I meet people off of the internet.</p><br />
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2"><label><input type="radio" name="question10" value=1>&emsp;1</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question10" value=2>&emsp;2</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question10" value=3>&emsp;3</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question10" value=4>&emsp;4</input></label></div>
+				<div class="col-lg-2"><label><input type="radio" name="question10" value=5>&emsp;5</input></label></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-2">Strongly Disagree</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Neutral</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-2">Strongly Agree</div>
+			</div>
+		<hr />
+		<button class="btn btn-primary btn-lg" type="submit" data-toggle="modal" data-target="#friendModal" id="#findFriend">Find Friend</button>
+		<hr />
+		<p><a target="_blank" href="/api/friends">API Friends List</a> | <a target="_blank" href="https://github.com/rxi16/FriendFinder.git">GitHub Repo</a>
+	</div>
+		<!--<div id="results" class="jumbotron jumbotron-default text-center">
+			<h1>Results</h1>
+			<h3 id="correct">Correct: &emsp;</h3>
+			<h3 id="incorrect">Incorrect: &emsp;</h3>
+			<h3 id="blank">Blank: &emsp;</h3>
+		</div>-->
+	</div>
+	
+	<!-- jquery library -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$("#findFriend").on("click", function() {
+			// validate user input	
+			function validateSurvey() {
+				var isValid = true;
+				$(".form-control").each(function() {
+				    if ($(this).val() === "") isValid = false;
+				});
+				$("input[type=radio]:checked").each(function() {
+					if (!$(this).val()) isValid = false;
+				});
+				return isValid;
+			}
+			if (validateSurvey() === true) {
+	  			// select question, get user's checked input, and hold in a variable
+		      	var question1 = $('#question1').val();
+			    var question2 = $('#question2').val();
+			    var question3 = $('#question3').val();
+			    var question4 = $('#question4').val();
+			    var question5 = $('#question5').val();
+			    var question6 = $('#question6').val();
+			    var question7 = $('#question7').val();
+			    var question8 = $('#question8').val();
+			    var question9 = $('#question9').val();
+			    var question10 = $('#question10').val();
+			    // create constructor for new friend
+		  		var newFriend = {
+		  			friendName: $('#friendName').val().trim(),
+		  			photoURL: $('#photoURL').val().trim(),
+		  			scoresArray: [parseFloat(question1), parseFloat(question2), parseFloat(question3), parseFloat(question4), parseFloat(question5), parseFloat(question6), parseFloat(question7), parseFloat(question8), parseFloat(question9), parseFloat(question10)]
+		  		};
+	  			// get the URL of the website (which website?)
+	  			var currentURL = window.location.origin;
+	  			// post data to friends api using AJAX
+	  			$.post(currentURL + "/api/friends", newFriend, function(data) {
+	  				// grab and display name and photo of match
+	  				$("#friendNameMatch").text(data.friendName);
+	  				$("#photoURLMatch").attr("src", data.photoURL);
+	  				$("#friendModal").modal("toggle");
+	  			});
+		    }
+		    else if (validateSurvey() === false) {
+		    	alert("Please complete all fields.");
+		    }
+		    return false;
+      	});
+			/*
+	  		function resetSurvey() {
+		        $('#friendName').val(" ");
+		  		$('#photoURL').val(" ");
+		        $('input').val(" ");
+	      	}
+      		resetSurvey();*/
+  	</script>
+</body>
+</html>
