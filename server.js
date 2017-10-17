@@ -16,15 +16,10 @@ app.use(express.static("app/public"));
 require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 
-// 
-app.get('/', function (request, response) {
-  response.send('Hello World')
-});
-
-// The below points our server to a series of "route" files.
-// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// points server to a series of "route" files.
+// map for server of how to respond when users visit or request data from various URLs.
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 // The below code effectively "starts" our server
 app.listen(port, function(port) {
